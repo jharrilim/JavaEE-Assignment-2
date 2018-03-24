@@ -34,25 +34,16 @@ public final class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-		request.setAttribute("fruitList", fruits);
-		dispatcher.forward(request, response);
-		ServletContext sc = getServletContext();
-		
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);			
+		}
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Fruit fruit = new Fruit("Mango", "AB1010", "Sweet and juicy", 1, 4.99, 50, "India");
-		session.setAttribute("mango", fruit);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ShowList.jsp");
-		request.setAttribute("Title", "All-Time Best Children's Fantasy Books");
-		request.setAttribute("BookList", null);
-		dispatcher.forward(request, response);
-		getServletContext();
 	}
 
 }

@@ -67,6 +67,5 @@ public class CartItem {
 	public String getSku() {
 		return sku;
 	}
-	
-	
+
 }
