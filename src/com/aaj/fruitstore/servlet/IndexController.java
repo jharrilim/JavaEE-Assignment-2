@@ -36,7 +36,7 @@ public final class IndexController extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		if (dispatcher != null) {
-			dispatcher.forward(request, response);			
+			dispatcher.forward(request, response);
 		}
 
 	}
