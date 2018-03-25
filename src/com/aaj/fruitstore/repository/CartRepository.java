@@ -24,15 +24,6 @@ public final class CartRepository implements Repository<CartItem> {
 		items = new HashMap<String, CartItem>();
 	}
 	
-	public void connectDb() {
-		try (Connection connection = DriverManager.getConnection(CONNECTION_STRING)) {
-			
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public List<CartItem> all() {
 		return new ArrayList<CartItem>(items.values());
 	}

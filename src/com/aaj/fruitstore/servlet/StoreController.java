@@ -40,4 +40,15 @@ public final class StoreController extends HttpServlet {
 		ServletContext sc = getServletContext();
 		
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		request.setAttribute("fruitList", fruits);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/store.jsp");
+		dispatcher.forward(request, response);
+		ServletContext sc = getServletContext();
+		
+	}
 }
