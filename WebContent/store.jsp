@@ -28,7 +28,7 @@
 				<td>${fruit.getDescription()}</td>
 				<td>${fruit.getAmount()}</td>
 				<td><input type="number" name="amt" /></td>
-				<td><input class="btn btn-primary" type="submit" /></td>
+				<td><input class="btn btn-primary" type="submit" value="Add To Cart" /></td>
 				</form>
 			</tr>
 		</c:forEach>

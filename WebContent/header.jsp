@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.aaj.fruitstore.config.Constants"%>
+<%@ page import="com.aaj.fruitstore.config.Constants, com.aaj.fruitstore.repository.*" session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,7 +44,8 @@ td {
 				</li>
 				<li
 					class="nav-item ${pageContext.request.requestURI eq '/GroupAAJ_COMP303Assignment2/cart.jsp' ? ' active' : ''}">
-					<a class="nav-link" href="/<%=Constants.APP_NAME%>/cart"><i class="fas fa-shopping-cart"></i>Cart</a>
+					<c:out value=""></c:out>
+					<a class="nav-link" href="/<%=Constants.APP_NAME%>/cart"><i class="fas fa-shopping-cart"></i>Cart(${cartCount})</a>
 
 				</li>
 			</ul>

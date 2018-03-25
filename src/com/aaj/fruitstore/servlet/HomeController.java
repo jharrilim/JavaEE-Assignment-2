@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.aaj.fruitstore.model.Fruit;
+import com.aaj.fruitstore.repository.CartRepository;
+import com.aaj.fruitstore.service.SessionService;
 import com.aaj.fruitstore.data.FruitData;
 
 import javax.servlet.RequestDispatcher;
@@ -17,12 +19,16 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/")
-public final class IndexController extends HttpServlet {
+@WebServlet("/home")
+public final class HomeController extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7182192776772556744L;
 	ArrayList<Fruit> fruits = FruitData.getFruits();
 	
-	public IndexController() {
+	public HomeController() {
 		super();
 	}
 
@@ -34,7 +40,13 @@ public final class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		HttpSession session = request.getSession();
+		//CartRepository cart = SessionService.createSessionCart(session);
+		//request.setAttribute("cartCount", cart.count());
+		CartRepository cart = new CartRepository();
+		session.setAttribute("cartCount", cart.count());
+		request.setAttribute("cartCount", cart.count());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
 		}
@@ -44,6 +56,7 @@ public final class IndexController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }

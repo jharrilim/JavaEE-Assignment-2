@@ -1,20 +1,11 @@
 package com.aaj.fruitstore.repository;
 
-import java.sql.Connection;
-import java.sql.DriverAction;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 
-import com.mysql.jdbc.Driver;
-
 import com.aaj.fruitstore.model.CartItem;
-import static com.aaj.fruitstore.config.Constants.CONNECTION_STRING;
 
 public final class CartRepository implements Repository<CartItem> {
 	
@@ -26,6 +17,10 @@ public final class CartRepository implements Repository<CartItem> {
 	
 	public List<CartItem> all() {
 		return new ArrayList<CartItem>(items.values());
+	}
+	
+	public int count() {
+		return items.size();
 	}
 	
 	@Override
