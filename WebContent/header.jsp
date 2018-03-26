@@ -36,16 +36,16 @@ td {
 			<ul class="navbar-nav mr-auto" style="list-style: none;">
 				<li
 					class="nav-item ${pageContext.request.requestURI eq '/GroupAAJ_COMP303Assignment2/' ? ' active' : ''}">
-					<a class="nav-link" href="/<%=Constants.APP_NAME%>/"><i class="fas fa-home"></i>Home</a>
+					<a class="nav-link" href="${pageContext.request.contextPath}/"><i class="fas fa-home"></i>Home</a>
 				</li>
 				<li
 					class="nav-item ${pageContext.request.requestURI eq '/GroupAAJ_COMP303Assignment2/store.jsp' ? ' active' : ''}">
-					<a class="nav-link" href="/<%=Constants.APP_NAME%>/store"><i class="fas fa-credit-card"></i>Store</a>
+					<a class="nav-link" href="${pageContext.request.contextPath}/store"><i class="fas fa-credit-card"></i>Store</a>
 				</li>
 				<li
 					class="nav-item ${pageContext.request.requestURI eq '/GroupAAJ_COMP303Assignment2/cart.jsp' ? ' active' : ''}">
 					<c:out value=""></c:out>
-					<a class="nav-link" href="/<%=Constants.APP_NAME%>/cart"><i class="fas fa-shopping-cart"></i>Cart(${cartCount})</a>
+					<a class="nav-link" href="${pageContext.request.contextPath}/cart"><i class="fas fa-shopping-cart"></i>Cart(${cart.itemTotal()})</a>
 
 				</li>
 			</ul>

@@ -3,10 +3,7 @@
 <jsp:include  page="header.jsp"></jsp:include>
 <div class="container">
 	<h1>Welcome to the Fruit Store.</h1>
-	<blockquote>I like fruits, you like fruits, we all know everyone likes fruits. 
-	That's why I'm selling fruits. Fruits? You need fruits. America was built on fruits.
-	<footer>Donald Trump, 2018</footer>
-	</blockquote>
+	<h2>You may view purchasable items <a href="${pageContext.request.contextPath}/store">here.</a></h2>
 
 </div>
 <jsp:include page="footer.jsp"></jsp:include>

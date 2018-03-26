@@ -3,7 +3,9 @@ package com.aaj.fruitstore.data;
 import java.util.ArrayList;
 
 import com.aaj.fruitstore.model.Fruit;
+import com.aaj.fruitstore.repository.StoreRepository;
 
+// Test Data
 public final class FruitData {
 
 	private FruitData() {	}
@@ -20,9 +22,11 @@ public final class FruitData {
 	private final static ArrayList<Fruit> DEFAULT_FRUITS;
 	
 	public final static ArrayList<Fruit> getFruits() {
-		return new ArrayList<Fruit>(DEFAULT_FRUITS);
+		return DEFAULT_FRUITS;
 	}
 
+	public final static StoreRepository STORE_DATA = new StoreRepository(DEFAULT_FRUITS_ARRAY);
+	
 	static {
 		DEFAULT_FRUITS = new ArrayList<>();
 		for(Fruit f : DEFAULT_FRUITS_ARRAY) {

@@ -25,6 +25,10 @@ public class CartItem {
 		this.price = price;
 	}
 
+	public CartItem(CartItem cartItem) {
+		this(cartItem.name, cartItem.sku, cartItem.description, cartItem.amount, cartItem.price);
+	}
+	
 	/**
 	 * 
 	 * @param amount
@@ -33,9 +37,14 @@ public class CartItem {
 	public void deductAmount(int amount) throws AmountDeductionException {
 		if (this.amount < amount)
 			throw new AmountDeductionException("Amount exceeds the amount in stock!");
-		this.amount =- amount;
+		this.amount = this.amount - amount;
 	}
 
+	public void addAmount(int amount) {
+		this.amount += amount;
+	}
+	
+	
 	public String getDescription() {
 		return description;
 	}
